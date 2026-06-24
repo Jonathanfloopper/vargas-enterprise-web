@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VARGAS ENTERPRISE — Auditoría & Soluciones Contables</title>
+<title>VARGAS ENTERPRISE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -147,6 +147,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .faq-item .a{max-height:0;overflow:hidden;transition:0.3s;font-size:13px;color:var(--muted);line-height:1.7}
 .faq-item.open .a{max-height:200px;padding-top:12px}
 @media(max-width:768px){.faq-grid{grid-template-columns:1fr}}
+.sistema-compact{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 32px;box-shadow:var(--shadow);max-width:900px;margin:0 auto}
+.sc-header{text-align:center;margin-bottom:20px}
+.sc-body{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+@media(max-width:768px){.sc-body{grid-template-columns:1fr}}
+.sc-features{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sc-f{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg);border-radius:8px;font-size:13px;font-weight:500;color:var(--text)}
+.sc-f-icon{font-size:16px;flex-shrink:0}
+.sc-coming{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px;padding-top:14px;border-top:1px solid var(--border)}
+.sc-coming-item{padding:4px 14px;border-radius:16px;font-size:12px;font-weight:500}
+.sc-coming-item.done{background:#dcfce7;color:#16a34a}
+.sc-coming-item.wip{background:#fef9c3;color:#ca8a04}
+.sc-coming-item.soon{background:#f1f5f9;color:var(--muted)}
 footer{background:var(--text);padding:48px 24px 24px;color:rgba(255,255,255,0.5)}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
 footer h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
@@ -174,7 +186,7 @@ footer a:hover{color:var(--accent)}
       <li><a href="#inicio" class="active">Inicio</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#sistema">Sistema Contable</a></li>
+
       <li><a href="#contacto">Contacto</a></li>
       <li><a href="#soporte">Soporte</a></li>
       <li><a href="#cv">Mi CV</a></li>
@@ -185,8 +197,8 @@ footer a:hover{color:var(--accent)}
 <section class="hero" id="inicio">
   <div class="hero-inner">
     <div>
-      <h1>Auditoría que <span class="hl">transforma</span><br>tu gestión financiera</h1>
-      <p>Soluciones contables modernas, auditoría profesional y desarrollo de software financiero a medida para empresas en Panamá.</p>
+      <h1>Transformamos tu <span class="hl">gestión financiera</span><br>con tecnología</h1>
+      <p>Desarrollo de software, páginas web informativas y soluciones contables modernas para empresas en Panamá.</p>
       <div class="hero-btns">
         <a href="#contacto" class="btn btn-primary">📅 Agendar reunión</a>
         <a href="#sistema" class="btn btn-white">🔍 Ver sistema contable</a>
@@ -248,45 +260,46 @@ footer a:hover{color:var(--accent)}
       <div class="servicio-card"><div class="icon">🔄</div><h3>Automatización de Procesos</h3><p>Conciliaciones bancarias, reportes automáticos, facturación recurrente y flujos de aprobación.</p></div>
       <div class="servicio-card"><div class="icon">🔒</div><h3>Seguridad & Cumplimiento</h3><p>Auditoría de seguridad, análisis de vulnerabilidades y aseguramiento de datos financieros.</p></div>
       <div class="servicio-card"><div class="icon">🎓</div><h3>Capacitación</h3><p>Entrenamiento a tu equipo en herramientas contables, auditoría y buenas prácticas financieras.</p></div>
+      <div class="servicio-card"><div class="icon">🌐</div><h3>Páginas Web Informativas</h3><p>Desarrollo de sitios web modernos para mostrar información de tu empresa, servicios, catálogos y más.</p></div>
     </div>
   </div>
 </section>
 
-<section class="section" id="sistema">
+<section class="section" id="sistema-en-servicios" style="background:#fff;padding-top:0">
   <div class="section-inner">
-    <div class="section-header">
-      <span class="tag">Plataforma</span>
-      <h2>Sistema Contable</h2>
-      <p>Desarrollamos software contable inteligente para tu empresa.</p>
-    </div>
-    <div class="sistema-intro">
-      <h3>💻 ¿Necesitas un sistema contable?</h3>
-      <p>Ofrecemos servicios de desarrollo de software contable a medida. Creamos plataformas web modernas adaptadas a las necesidades específicas de tu negocio y a la normativa panameña.</p>
-    </div>
-    <div class="sistema-preview">
-      <div class="tb"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Plataforma Contable — Dashboard</span></div>
-      <div class="mc">
-        <div class="fl hd"><span>Cuenta</span><span>Descripción</span><span>Debe</span><span>Haber</span></div>
-        <div class="fl"><span>1.01.01</span><span>Caja General</span><span class="gn">B/. 12,500</span><span>—</span></div>
-        <div class="fl"><span>2.01.01</span><span>Proveedores</span><span>—</span><span class="rd">B/. 8,300</span></div>
-        <div class="fl"><span>4.01.01</span><span>Ventas Netas</span><span>—</span><span class="gn">B/. 45,200</span></div>
-        <div class="fl"><span>5.01.01</span><span>Costo de Ventas</span><span class="rd">B/. 28,100</span><span>—</span></div>
-        <div class="fl"><span>3.01.01</span><span>Capital Social</span><span>—</span><span class="gn">B/. 50,000</span></div>
+    <div class="sistema-compact">
+      <div class="sc-header">
+        <span class="tag" style="margin-bottom:8px">Plataforma</span>
+        <h2 style="font-size:24px;font-weight:800;color:var(--text)">Sistema Contable</h2>
+        <p style="color:var(--muted);font-size:14px;max-width:480px;margin:6px auto 0">Desarrollamos software contable a medida para tu empresa.</p>
       </div>
-    </div>
-    <div class="features-grid">
-      <div class="feature"><div class="icon">📈</div><h4>Reportes Automáticos</h4><p>Balance general, resultados y flujo de caja al instante.</p></div>
-      <div class="feature"><div class="icon">📄</div><h4>Facturación NCF</h4><p>Facturación electrónica conforme a la DGII.</p></div>
-      <div class="feature"><div class="icon">📦</div><h4>Control de Inventarios</h4><p>Entradas, salidas, ajustes en tiempo real.</p></div>
-      <div class="feature"><div class="icon">👥</div><h4>Roles y Permisos</h4><p>Control de acceso por usuario.</p></div>
-      <div class="feature"><div class="icon">📱</div><h4>Multiplataforma</h4><p>Accedé desde cualquier dispositivo.</p></div>
-      <div class="feature"><div class="icon">🔐</div><h4>Datos Seguros</h4><p>Encriptación y backups SSL.</p></div>
-    </div>
-    <div class="coming-box">
-      <div class="icon">🚀</div><h3>Próximamente</h3>
-      <p>Estamos desarrollando nuevas funcionalidades.</p>
-      <div class="coming-tags"><span class="done">✅ RRHH</span><span class="wip">🔧 Conciliación</span><span class="soon">⏳ App Móvil</span><span class="soon">⏳ IA Predictiva</span></div>
-      <div class="coming-bar"><div class="s fl"></div><div class="s fl"></div><div class="s hf"></div><div class="s"></div><div class="s"></div></div>
+      <div class="sc-body">
+        <div class="sistema-preview" style="margin:0">
+          <div class="tb"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Plataforma Contable — Dashboard</span></div>
+          <div class="mc">
+            <div class="fl hd"><span>Cuenta</span><span>Descripción</span><span>Debe</span><span>Haber</span></div>
+            <div class="fl"><span>1.01.01</span><span>Caja General</span><span class="gn">B/. 12,500</span><span>—</span></div>
+            <div class="fl"><span>2.01.01</span><span>Proveedores</span><span>—</span><span class="rd">B/. 8,300</span></div>
+            <div class="fl"><span>4.01.01</span><span>Ventas Netas</span><span>—</span><span class="gn">B/. 45,200</span></div>
+            <div class="fl"><span>5.01.01</span><span>Costo de Ventas</span><span class="rd">B/. 28,100</span><span>—</span></div>
+            <div class="fl"><span>3.01.01</span><span>Capital Social</span><span>—</span><span class="gn">B/. 50,000</span></div>
+          </div>
+        </div>
+        <div class="sc-features">
+          <div class="sc-f"><span class="sc-f-icon">📈</span><span>Reportes Automáticos</span></div>
+          <div class="sc-f"><span class="sc-f-icon">📄</span><span>Facturación NCF</span></div>
+          <div class="sc-f"><span class="sc-f-icon">📦</span><span>Control de Inventarios</span></div>
+          <div class="sc-f"><span class="sc-f-icon">👥</span><span>Roles y Permisos</span></div>
+          <div class="sc-f"><span class="sc-f-icon">📱</span><span>Multiplataforma</span></div>
+          <div class="sc-f"><span class="sc-f-icon">🔐</span><span>Datos Seguros</span></div>
+        </div>
+      </div>
+      <div class="sc-coming">
+        <span class="sc-coming-item done">✅ RRHH</span>
+        <span class="sc-coming-item wip">🔧 Conciliación</span>
+        <span class="sc-coming-item soon">⏳ App Móvil</span>
+        <span class="sc-coming-item soon">⏳ IA Predictiva</span>
+      </div>
     </div>
   </div>
 </section>
