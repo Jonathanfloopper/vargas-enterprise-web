@@ -80,14 +80,26 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .testimonial .author{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
 .testimonial .av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--primary),#6366f1);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
 @media(max-width:768px){.nosotros-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}}
-.servicios-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center}
-.servicio-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:0.3s;box-shadow:var(--shadow);position:relative;overflow:hidden}
-.servicio-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--primary);opacity:0;transition:0.3s}
-.servicio-card:hover::before{opacity:1}
-.servicio-card:hover{transform:translateY(-4px);box-shadow:0 12px 36px rgba(30,64,175,0.08);border-color:var(--primary-light)}
-.servicio-card .icon{font-size:32px;margin-bottom:12px}
+.servicios-grid{display:grid;grid-template-columns:repeat(3,minmax(280px,1fr));gap:20px;justify-content:center}@media(max-width:960px){.servicios-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
+.servicio-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:0;transition:0.3s;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.servicio-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,0,0,0.08)}
+.servicio-card .sc-top{height:4px;width:100%}
+.servicio-card .sc-body{padding:24px 28px 28px}
+.servicio-card .icon{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:12px;font-size:22px;margin-bottom:14px}
 .servicio-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
-.servicio-card p{font-size:14px;color:var(--muted);line-height:1.7}
+.servicio-card p{font-size:14px;color:var(--muted);line-height:1.7;margin:0}
+.servicio-card:nth-child(1){border-color:#dbeafe}
+.servicio-card:nth-child(1) .sc-top{background:linear-gradient(90deg,#3b82f6,#1d4ed8)}
+.servicio-card:nth-child(1) .icon{background:#eff6ff;color:#1d4ed8}
+.servicio-card:nth-child(1):hover{box-shadow:0 16px 40px rgba(59,130,246,0.12)}
+.servicio-card:nth-child(2){border-color:#d1fae5}
+.servicio-card:nth-child(2) .sc-top{background:linear-gradient(90deg,#10b981,#047857)}
+.servicio-card:nth-child(2) .icon{background:#ecfdf5;color:#047857}
+.servicio-card:nth-child(2):hover{box-shadow:0 16px 40px rgba(16,185,129,0.12)}
+.servicio-card:nth-child(3){border-color:#fef3c7}
+.servicio-card:nth-child(3) .sc-top{background:linear-gradient(90deg,#f59e0b,#d97706)}
+.servicio-card:nth-child(3) .icon{background:#fffbeb;color:#d97706}
+.servicio-card:nth-child(3):hover{box-shadow:0 16px 40px rgba(245,158,11,0.12)}
 .sistema-intro{background:linear-gradient(135deg,var(--primary),#0f172a);border-radius:20px;padding:48px;color:#fff;margin-bottom:48px;text-align:center}
 .sistema-intro h3{font-size:28px;font-weight:800}
 .sistema-intro p{color:rgba(255,255,255,0.7);max-width:600px;margin:12px auto 0;font-size:15px}
@@ -254,9 +266,9 @@ footer a:hover{color:var(--accent)}
       <p>Soluciones tecnológicas para potenciar tu proyecto o negocio.</p>
     </div>
     <div class="servicios-grid">
-      <div class="servicio-card"><div class="icon">💻</div><h3>Desarrollo de Software Contable</h3><p>Creamos plataformas contables personalizadas: facturación, inventarios, reportes financieros y más.</p></div>
-      <div class="servicio-card"><div class="icon">🌐</div><h3>Páginas Web Informativas</h3><p>Desarrollo de sitios web modernos para mostrar información de tu empresa, servicios, catálogos y más.</p></div>
-      <div class="servicio-card"><div class="icon">🔧</div><h3>Soporte Técnico</h3><p>Asistencia y mantenimiento para sitios web y sistemas de software, resolución de incidencias y mejoras continuas.</p></div>
+      <div class="servicio-card"><div class="sc-top"></div><div class="sc-body"><div class="icon">💻</div><h3>Desarrollo de Software Contable</h3><p>Creamos plataformas contables personalizadas: facturación, inventarios, reportes financieros y más.</p></div></div>
+      <div class="servicio-card"><div class="sc-top"></div><div class="sc-body"><div class="icon">🌐</div><h3>Páginas Web Informativas</h3><p>Desarrollo de sitios web modernos para mostrar información de tu empresa, servicios, catálogos y más.</p></div></div>
+      <div class="servicio-card"><div class="sc-top"></div><div class="sc-body"><div class="icon">🔧</div><h3>Soporte Técnico</h3><p>Asistencia y mantenimiento para sitios web y sistemas de software, resolución de incidencias y mejoras continuas.</p></div></div>
     </div>
   </div>
 </section>
