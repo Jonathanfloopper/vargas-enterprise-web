@@ -3,117 +3,428 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jonathan Sánchez</title>
+<title>JS Auditoría & Soluciones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+:root{--navy:#0b1120;--dark:#0f172a;--card:#131c31;--border:#1e293b;--accent:#3b82f6;--accent2:#6366f1;--text:#e2e8f0;--muted:#94a3b8;--accent-gradient:linear-gradient(135deg,#3b82f6,#6366f1,#8b5cf6)}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0f;color:#e0e0e0;font-family:'Segoe UI',-apple-system,sans-serif;line-height:1.6}
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #1a1a2e;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
-nav .logo{font-weight:700;font-size:18px;color:#7bf;letter-spacing:-0.5px}
-nav .logo span{color:#fff}
-nav a{color:#888;text-decoration:none;font-size:14px;margin-left:20px;transition:0.2s}
-nav a:hover{color:#7bf}
-.container{max-width:900px;margin:0 auto;padding:0 24px}
-.section{padding:100px 0 60px}
-h1{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1.2}
-h1 .accent{background:linear-gradient(135deg,#7bf,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-h2{font-size:26px;font-weight:700;margin-bottom:30px;color:#fff}
-h2 .line{display:inline-block;width:40px;height:3px;background:#7bf;margin-right:12px;vertical-align:middle}
-p{color:#999;font-size:16px;max-width:600px}
-.hero{min-height:100vh;display:flex;align-items:center;padding-top:60px}
-.hero p{font-size:18px;color:#777;margin:20px 0 30px}
-.btn{display:inline-block;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:0.2s;cursor:pointer;border:none}
-.btn-primary{background:#7bf;color:#0a0a0f}
-.btn-primary:hover{background:#6af;transform:translateY(-2px)}
-.btn-outline{background:transparent;border:1.5px solid #333;color:#ccc}
-.btn-outline:hover{border-color:#7bf;color:#7bf}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.project-card{background:#12121e;border:1px solid #1e1e30;border-radius:12px;padding:20px;transition:0.3s}
-.project-card:hover{border-color:#7bf;transform:translateY(-4px);box-shadow:0 8px 30px rgba(100,180,255,0.08)}
-.project-card .icon{font-size:28px;margin-bottom:10px}
-.project-card h3{font-size:16px;color:#fff;margin-bottom:6px}
-.project-card p{font-size:13px;color:#777;margin-bottom:12px}
-.project-card .tag{display:inline-block;background:#1a1a2e;color:#7bf;font-size:11px;padding:2px 10px;border-radius:10px;margin-right:4px;margin-bottom:4px}
-.project-card .link{color:#7bf;text-decoration:none;font-size:13px;font-weight:600;display:inline-block;margin-top:8px}
-.project-card .link:hover{text-decoration:underline}
-.contact{background:#0e0e1a;border:1px solid #1a1a2e;border-radius:12px;padding:30px;text-align:center}
-.contact p{color:#888;font-size:14px;margin:10px 0 20px}
-.contact .email{color:#7bf;text-decoration:none;font-size:18px;font-weight:600}
-.contact .email:hover{text-decoration:underline}
-footer{text-align:center;padding:40px 20px;color:#444;font-size:13px;border-top:1px solid #111}
-footer a{color:#555;text-decoration:none}
-footer a:hover{color:#7bf}
+html{scroll-behavior:smooth}
+body{background:var(--navy);color:var(--text);font-family:'Inter',-apple-system,sans-serif;line-height:1.7;overflow-x:hidden}
+
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(11,17,32,0.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(30,41,59,0.5);padding:0 24px;transition:0.3s}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:64px}
+.nav-logo{font-weight:800;font-size:20px;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-0.5px}
+.nav-logo span{color:#fff;-webkit-text-fill-color:#fff;background:none}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{padding:8px 16px;border-radius:8px;color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;transition:0.2s}
+.nav-links a:hover{color:#fff;background:rgba(59,130,246,0.1)}
+.nav-links a.active{color:#fff;background:rgba(59,130,246,0.15)}
+.menu-btn{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px}
+@media(max-width:768px){
+  .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:rgba(11,17,32,0.98);flex-direction:column;padding:12px;border-bottom:1px solid var(--border)}
+  .nav-links.open{display:flex}
+  .menu-btn{display:block}
+}
+
+/* SECTIONS */
+.section{padding:100px 24px;max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:56px}
+.section-header .tag{display:inline-block;background:rgba(59,130,246,0.1);color:var(--accent);font-size:12px;font-weight:600;padding:4px 14px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:12px}
+.section-header h2{font-size:36px;font-weight:800;letter-spacing:-1px;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.section-header p{color:var(--muted);font-size:16px;max-width:560px;margin:12px auto 0}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(59,130,246,0.08),transparent 70%);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero h1{font-size:52px;font-weight:800;line-height:1.1;letter-spacing:-1.5px}
+.hero h1 .gradient{background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:18px;color:var(--muted);margin:20px 0 32px;max-width:520px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;text-decoration:none;font-weight:600;font-size:14px;transition:0.3s;cursor:pointer;border:none}
+.btn-primary{background:var(--accent-gradient);color:#fff}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(59,130,246,0.3)}
+.btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--accent);color:#fff;transform:translateY(-2px)}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:32px;width:100%;max-width:420px;backdrop-filter:blur(10px)}
+.hero-card .stat{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)}
+.hero-card .stat:last-child{border:none}
+.hero-card .stat .num{font-weight:700;color:var(--accent)}
+.hero-card .stat .lbl{color:var(--muted);font-size:14px}
+.hero-card .bar{margin:16px 0;height:4px;background:var(--border);border-radius:2px;overflow:hidden}
+.hero-card .bar .fill{height:100%;width:70%;background:var(--accent-gradient);border-radius:2px}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;text-align:center;gap:40px}
+  .hero h1{font-size:36px}
+  .hero p{margin-left:auto;margin-right:auto}
+  .hero-btns{justify-content:center}
+  .hero-visual{max-width:380px;margin:0 auto}
+}
+
+/* NOSOTROS */
+.nosotros-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.nosotros-text p{color:var(--muted);font-size:15px;margin-bottom:16px}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center}
+.stat-box .big{font-size:28px;font-weight:800;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-box .lbl{font-size:12px;color:var(--muted);margin-top:4px}
+.nosotros-visual{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative}
+.nosotros-visual .quote{font-size:15px;color:var(--muted);font-style:italic;line-height:1.8}
+.nosotros-visual .author{display:flex;align-items:center;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
+.nosotros-visual .author .avatar{width:40px;height:40px;border-radius:50%;background:var(--accent-gradient);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px}
+@media(max-width:768px){.nosotros-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}}
+
+/* SERVICIOS */
+.servicios-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.servicio-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:0.3s;position:relative;overflow:hidden}
+.servicio-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent-gradient);opacity:0;transition:0.3s}
+.servicio-card:hover::before{opacity:1}
+.servicio-card:hover{transform:translateY(-4px);border-color:rgba(59,130,246,0.3);box-shadow:0 8px 30px rgba(59,130,246,0.06)}
+.servicio-card .icon{font-size:32px;margin-bottom:14px}
+.servicio-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+.servicio-card p{font-size:14px;color:var(--muted);line-height:1.7}
+.servicio-card .tag{display:inline-block;background:rgba(59,130,246,0.08);color:var(--accent);font-size:11px;padding:2px 10px;border-radius:12px;margin-top:12px;font-weight:500}
+
+/* SISTEMA CONTABLE */
+.sistema-header{text-align:center;margin-bottom:48px}
+.sistema-preview{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:48px}
+.sistema-preview .top-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(15,23,42,0.6);border-bottom:1px solid var(--border)}
+.sistema-preview .top-bar .dot{width:10px;height:10px;border-radius:50%}
+.sistema-preview .top-bar .dot:nth-child(1){background:#ef4444}
+.sistema-preview .top-bar .dot:nth-child(2){background:#f59e0b}
+.sistema-preview .top-bar .dot:nth-child(3){background:#22c55e}
+.sistema-preview .top-bar .title{font-size:12px;color:var(--muted);margin-left:12px}
+.sistema-preview .mock-content{padding:24px}
+.sistema-preview .mock-content .row{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:8px;padding:10px 0;border-bottom:1px solid rgba(30,41,59,0.4);font-size:13px}
+.sistema-preview .mock-content .row.header{color:var(--accent);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--accent)}
+.sistema-preview .mock-content .row .cell{color:var(--muted)}
+.sistema-preview .mock-content .row .cell.highlight{color:#22c55e;font-weight:600}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin-bottom:40px}
+.feature{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:0.2s}
+.feature:hover{border-color:rgba(59,130,246,0.2)}
+.feature .icon{font-size:24px;margin-bottom:8px}
+.feature h4{font-size:14px;font-weight:600;margin-bottom:4px}
+.feature p{font-size:13px;color:var(--muted)}
+
+.coming-box{text-align:center;background:var(--card);border:2px dashed var(--border);border-radius:16px;padding:48px 24px}
+.coming-box .icon{font-size:48px;margin-bottom:12px}
+.coming-box h3{font-size:20px;font-weight:700;margin-bottom:6px}
+.coming-box p{color:var(--muted);font-size:14px;margin-bottom:20px}
+.coming-box .progress-ring{display:flex;justify-content:center;gap:8px}
+.coming-box .progress-ring .step{width:12px;height:12px;border-radius:50%;background:var(--border)}
+.coming-box .progress-ring .step.done{background:var(--accent)}
+.coming-box .progress-ring .step.half{background:linear-gradient(135deg,var(--accent) 50%,var(--border) 50%)}
+
+/* CONTACTO */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info h3{font-size:22px;font-weight:700;margin-bottom:12px}
+.contact-info p{color:var(--muted);font-size:15px;margin-bottom:24px}
+.contact-item{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.contact-item .icon{width:44px;height:44px;border-radius:10px;background:rgba(59,130,246,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.contact-item .info .label{font-size:12px;color:var(--muted)}
+.contact-item .info .value{font-size:14px;font-weight:600;color:#fff}
+.contact-form{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.contact-form .field{margin-bottom:16px}
+.contact-form label{display:block;font-size:13px;font-weight:500;margin-bottom:6px;color:var(--muted)}
+.contact-form input,.contact-form textarea{width:100%;padding:12px 14px;background:var(--navy);border:1px solid var(--border);border-radius:8px;color:#fff;font-size:14px;font-family:inherit;transition:0.2s;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.contact-form textarea{resize:vertical;min-height:100px}
+.contact-form .btn{width:100%;justify-content:center}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr}}
+
+/* SOPORTE / FAQ */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;cursor:pointer;transition:0.2s}
+.faq-item:hover{border-color:rgba(59,130,246,0.2)}
+.faq-item .question{display:flex;justify-content:space-between;align-items:center;font-size:14px;font-weight:600}
+.faq-item .question .arrow{transition:0.3s;color:var(--muted);font-size:12px}
+.faq-item.open .question .arrow{transform:rotate(180deg)}
+.faq-item .answer{max-height:0;overflow:hidden;transition:0.3s;font-size:13px;color:var(--muted);line-height:1.7}
+.faq-item.open .answer{max-height:200px;padding-top:12px}
+@media(max-width:768px){.faq-grid{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:40px 24px 24px;margin-top:40px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+footer h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+footer p,footer a{font-size:13px;color:var(--muted);text-decoration:none;display:block;margin-bottom:6px}
+footer a:hover{color:var(--accent)}
+.footer-bottom{max-width:1200px;margin:24px auto 0;padding-top:20px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:var(--muted)}
+.footer-bottom a{display:inline;color:var(--accent)}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="logo">JS<span>.</span></div>
-  <div>
-    <a href="#inicio">Inicio</a>
-    <a href="#proyectos">Proyectos</a>
-    <a href="cv.html">📄 CV</a>
-    <a href="#contacto">Contacto</a>
+  <div class="nav-inner">
+    <div class="nav-logo">JS<span>Auditoría</span></div>
+    <button class="menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <ul class="nav-links">
+      <li><a href="#inicio" class="active">Inicio</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sistema">Sistema Contable</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#soporte">Soporte</a></li>
+    </ul>
   </div>
 </nav>
 
+<!-- INICIO -->
 <section class="hero" id="inicio">
-  <div class="container">
-    <h1>Jonathan<br><span class="accent">Sánchez</span></h1>
-    <p>Auditoría, seguridad informática y desarrollo web. Creando soluciones prácticas para problemas reales.</p>
-    <a href="cv.html" class="btn btn-primary">📄 Ver mi CV</a>
-    <a href="#proyectos" class="btn btn-outline" style="margin-left:10px">Proyectos</a>
-  </div>
-</section>
-
-<section class="section" id="proyectos">
-  <div class="container">
-    <h2><span class="line"></span>Proyectos</h2>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <div class="icon">🔐</div>
-        <h3>Auditoría de Acceso a Galería</h3>
-        <p>Demo que muestra cómo un link puede obtener fotos del teléfono mediante ingeniería social. Incluye panel de administración con EXIF y GPS.</p>
-        <span class="tag">Seguridad</span>
-        <span class="tag">Auditoría</span>
-        <a href="../JUEGOIA/foto.html" class="link">Ver demo →</a>
+  <div class="hero-inner">
+    <div>
+      <h1>Auditoría & <span class="gradient">Soluciones</span><br>que impulsan tu empresa</h1>
+      <p>Transformamos la gestión financiera de tu negocio con tecnología inteligente, auditoría profesional y un sistema contable diseñado para Panamá.</p>
+      <div class="hero-btns">
+        <a href="#contacto" class="btn btn-primary">📅 Agendar reunión</a>
+        <a href="#sistema" class="btn btn-outline">🔍 Ver sistema contable</a>
       </div>
-
-      <div class="project-card">
-        <div class="icon">📊</div>
-        <h3>Panel de Exfiltración</h3>
-        <p>Panel que muestra datos capturados en tiempo real con metadatos EXIF, GPS simulado y exportación JSON.</p>
-        <span class="tag">Dashboard</span>
-        <span class="tag">Forensia</span>
-        <a href="../JUEGOIA/panel.html" class="link">Ver panel →</a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div style="display:flex;justify-content:space-between;margin-bottom:12px">
+          <span style="font-size:14px;font-weight:600">Dashboard</span>
+          <span style="color:var(--accent);font-size:13px">+23%</span>
+        </div>
+        <div class="bar"><div class="fill" style="width:75%"></div></div>
+        <div class="stat"><span class="lbl">Ingresos</span><span class="num">B/. 48,200</span></div>
+        <div class="stat"><span class="lbl">Egresos</span><span class="num">B/. 31,450</span></div>
+        <div class="stat"><span class="lbl">Utilidad</span><span class="num" style="color:#22c55e">B/. 16,750</span></div>
+        <div class="stat"><span class="lbl">Cuentas por cobrar</span><span class="num" style="color:#f59e0b">B/. 8,200</span></div>
+        <div class="bar"><div class="fill" style="width:45%;background:linear-gradient(135deg,#f59e0b,#f97316)"></div></div>
       </div>
-
-      <div class="project-card">
-        <div class="icon">🚀</div>
-        <h3>ARCA — Misión Kepler</h3>
-        <p>Juego interactivo de navegación espacial con sistema de decisiones, moral y eventos aleatorios.</p>
-        <span class="tag">Juego</span>
-        <span class="tag">JavaScript</span>
-        <a href="../JUEGOIA/index.html" class="link">Jugar →</a>
-      </div>
-
     </div>
   </div>
 </section>
 
+<!-- NOSOTROS -->
+<section class="section" id="nosotros">
+  <div class="section-header">
+    <span class="tag">Quiénes somos</span>
+    <h2>Nosotros</h2>
+    <p>Profesionales en auditoría, contabilidad y tecnología.</p>
+  </div>
+  <div class="nosotros-grid">
+    <div class="nosotros-text">
+      <p>Somos un equipo comprometido con la transformación digital de la gestión financiera en Panamá. Combinamos décadas de experiencia en auditoría con tecnología de punta para ofrecer soluciones contables que realmente funcionan.</p>
+      <p>Nuestro sistema contable nace de la necesidad de tener control total sobre los procesos financieros, adaptado a la legislación panameña y con reportes en tiempo real.</p>
+      <div class="stats-row">
+        <div class="stat-box"><div class="big">8+</div><div class="lbl">Años de experiencia</div></div>
+        <div class="stat-box"><div class="big">120+</div><div class="lbl">Clientes atendidos</div></div>
+        <div class="stat-box"><div class="big">98%</div><div class="lbl">Satisfacción</div></div>
+      </div>
+    </div>
+    <div class="nosotros-visual">
+      <div class="quote">"Implementamos un sistema contable que se adapta a tu negocio, no al revés. Cada empresa es única y merece una solución a su medida."</div>
+      <div class="author">
+        <div class="avatar">JS</div>
+        <div><strong>Jonathan Sánchez</strong><br><span style="font-size:13px;color:var(--muted)">Director de Auditoría</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="section" id="servicios">
+  <div class="section-header">
+    <span class="tag">Qué ofrecemos</span>
+    <h2>Servicios</h2>
+    <p>Soluciones integrales para la gestión financiera de tu empresa.</p>
+  </div>
+  <div class="servicios-grid">
+    <div class="servicio-card">
+      <div class="icon">📊</div>
+      <h3>Auditoría Financiera</h3>
+      <p>Evaluación independiente de estados financieros, control interno y cumplimiento normativo.</p>
+      <span class="tag">Auditoría</span>
+    </div>
+    <div class="servicio-card">
+      <div class="icon">📋</div>
+      <h3>Consultoría Contable</h3>
+      <p>Asesoría personalizada en normativas contables locales e internacionales, NIC/NIIF y más.</p>
+      <span class="tag">Consultoría</span>
+    </div>
+    <div class="servicio-card">
+      <div class="icon">💻</div>
+      <h3>Sistema Contable</h3>
+      <p>Plataforma web para la gestión contable con reportes automáticos, facturación y control de inventarios.</p>
+      <span class="tag">Tecnología</span>
+    </div>
+    <div class="servicio-card">
+      <div class="icon">🔒</div>
+      <h3>Seguridad & Cumplimiento</h3>
+      <p>Pruebas de seguridad, análisis de vulnerabilidades y aseguramiento de datos financieros.</p>
+      <span class="tag">Seguridad</span>
+    </div>
+    <div class="servicio-card">
+      <div class="icon">📱</div>
+      <h3>Automatización</h3>
+      <p>Automatización de procesos contables, conciliaciones bancarias y generación de reportes.</p>
+      <span class="tag">Automatización</span>
+    </div>
+    <div class="servicio-card">
+      <div class="icon">🎓</div>
+      <h3>Capacitación</h3>
+      <p>Entrenamiento a tu equipo en herramientas contables, auditoría y buenas prácticas financieras.</p>
+      <span class="tag">Formación</span>
+    </div>
+  </div>
+</section>
+
+<!-- SISTEMA CONTABLE -->
+<section class="section" id="sistema">
+  <div class="section-header">
+    <span class="tag">Plataforma</span>
+    <h2>Sistema Contable</h2>
+    <p>Control total de tu empresa en un solo lugar.</p>
+  </div>
+
+  <div class="sistema-preview">
+    <div class="top-bar">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+      <div class="title">SistemaContable — Dashboard</div>
+    </div>
+    <div class="mock-content">
+      <div class="row header">
+        <div class="cell">Cuenta</div>
+        <div class="cell">Descripción</div>
+        <div class="cell">Debe</div>
+        <div class="cell">Haber</div>
+      </div>
+      <div class="row"><div class="cell">1.01.01</div><div class="cell">Caja General</div><div class="cell highlight">B/. 12,500</div><div class="cell">—</div></div>
+      <div class="row"><div class="cell">2.01.01</div><div class="cell">Proveedores</div><div class="cell">—</div><div class="cell highlight">B/. 8,300</div></div>
+      <div class="row"><div class="cell">4.01.01</div><div class="cell">Ventas Netas</div><div class="cell">—</div><div class="cell highlight">B/. 45,200</div></div>
+      <div class="row"><div class="cell">5.01.01</div><div class="cell">Costo de Ventas</div><div class="cell highlight">B/. 28,100</div><div class="cell">—</div></div>
+    </div>
+  </div>
+
+  <div class="features-grid">
+    <div class="feature"><div class="icon">📈</div><h4>Reportes Automáticos</h4><p>Balance general, estado de resultados y flujo de caja al instante.</p></div>
+    <div class="feature"><div class="icon">📄</div><h4>Facturación NCF</h4><p>Facturación electrónica conforme a la DGII, secuencias automáticas.</p></div>
+    <div class="feature"><div class="icon">📦</div><h4>Control de Inventarios</h4><p>Entradas, salidas, ajustes y valoración de inventario en tiempo real.</p></div>
+    <div class="feature"><div class="icon">👥</div><h4>Roles y Permisos</h4><p>Control de acceso por usuario, niveles de autorización y auditoría de cambios.</p></div>
+    <div class="feature"><div class="icon">📱</div><h4>Multiplataforma</h4><p>Accede desde cualquier dispositivo, oficina o móvil, con datos sincronizados.</p></div>
+    <div class="feature"><div class="icon">🔐</div><h4>Datos Seguros</h4><p>Encriptación de extremo a extremo, backups automáticos y hosting local opcional.</p></div>
+  </div>
+
+  <div class="coming-box">
+    <div class="icon">🚀</div>
+    <h3>Próximamente</h3>
+    <p>Estamos trabajando en nuevas funcionalidades para potenciar tu experiencia.</p>
+    <div style="display:flex;justify-content:center;gap:6px;margin-bottom:16px;flex-wrap:wrap">
+      <span style="background:rgba(59,130,246,0.1);color:var(--accent);padding:4px 14px;border-radius:20px;font-size:12px">✅ Módulo de RRHH</span>
+      <span style="background:rgba(59,130,246,0.1);color:var(--accent);padding:4px 14px;border-radius:20px;font-size:12px">🔧 Conciliación Bancaria Automática</span>
+      <span style="background:rgba(59,130,246,0.08);color:var(--muted);padding:4px 14px;border-radius:20px;font-size:12px">⏳ App Móvil</span>
+      <span style="background:rgba(59,130,246,0.08);color:var(--muted);padding:4px 14px;border-radius:20px;font-size:12px">⏳ IA Predictiva</span>
+    </div>
+    <div class="progress-ring">
+      <div class="step done"></div><div class="step done"></div><div class="step half"></div><div class="step"></div><div class="step"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
 <section class="section" id="contacto">
-  <div class="container">
-    <h2><span class="line"></span>Contacto</h2>
-    <div class="contact">
-      <p>Si querés contactarme para algún proyecto o colaboración, escribime.</p>
-      <a href="mailto:correo@ejemplo.com" class="email">correo@ejemplo.com</a>
+  <div class="section-header">
+    <span class="tag">Comunicación</span>
+    <h2>Contacto</h2>
+    <p>Estamos listos para ayudarte.</p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Hablemos</h3>
+      <p>Agenda una reunión sin compromiso y descubre cómo podemos optimizar la gestión financiera de tu empresa.</p>
+      <div class="contact-item"><div class="icon">📧</div><div class="info"><div class="label">Email</div><div class="value">correo@ejemplo.com</div></div></div>
+      <div class="contact-item"><div class="icon">📱</div><div class="info"><div class="label">Teléfono</div><div class="value">+507 6000-0000</div></div></div>
+      <div class="contact-item"><div class="icon">📍</div><div class="info"><div class="label">Ubicación</div><div class="value">Panamá, Panamá</div></div></div>
+      <div class="contact-item"><div class="icon">🕐</div><div class="info"><div class="label">Horario</div><div class="value">Lun — Vie, 8:00 AM — 5:00 PM</div></div></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault();alert('Formulario de prueba — intégralo con un backend')">
+      <div class="field"><label>Nombre completo</label><input type="text" placeholder="Tu nombre" required></div>
+      <div class="field"><label>Correo electrónico</label><input type="email" placeholder="correo@ejemplo.com" required></div>
+      <div class="field"><label>Teléfono</label><input type="tel" placeholder="+507 6000-0000"></div>
+      <div class="field"><label>Mensaje</label><textarea placeholder="Contanos en qué podemos ayudarte..." required></textarea></div>
+      <button type="submit" class="btn btn-primary">📩 Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<!-- SOPORTE -->
+<section class="section" id="soporte">
+  <div class="section-header">
+    <span class="tag">Ayuda</span>
+    <h2>Soporte</h2>
+    <p>Respuestas a las preguntas más frecuentes.</p>
+  </div>
+  <div class="faq-grid">
+    <div class="faq-item open">
+      <div class="question">¿El sistema contable está adaptado a Panamá?<span class="arrow">▾</span></div>
+      <div class="answer">Sí, nuestro sistema cumple con las normativas contables panameñas, incluyendo NIIF para PYMES, facturación electrónica y reportes para la DGII.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">¿Ofrecen capacitación para el equipo?<span class="arrow">▾</span></div>
+      <div class="answer">Sí, incluimos sesiones de capacitación para todo tu equipo, adaptadas al nivel de conocimiento de cada usuario.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">¿Puedo acceder desde el celular?<span class="arrow">▾</span></div>
+      <div class="answer">Sí, la plataforma es completamente responsiva y accesible desde cualquier dispositivo con conexión a internet.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">¿Qué soporte técnico incluye?<span class="arrow">▾</span></div>
+      <div class="answer">Soporte técnico por correo electrónico y WhatsApp en horario laboral, con respuesta en máximo 24 horas hábiles.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">¿Los datos están seguros?<span class="arrow">▾</span></div>
+      <div class="answer">Todos los datos se almacenan con encriptación AES-256, backups diarios y hosting con certificación SSL. Cumplimos con estándares internacionales.</div>
+    </div>
+    <div class="faq-item">
+      <div class="question">¿Puedo migrar mis datos actuales?<span class="arrow">▾</span></div>
+      <div class="answer">Sí, ofrecemos servicio de migración de datos desde Excel, sistemas legacy u otros softwares contables.</div>
     </div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026</p>
+  <div class="footer-inner">
+    <div>
+      <div class="nav-logo" style="margin-bottom:12px">JS<span>Auditoría</span></div>
+      <p>Transformando la gestión financiera con tecnología e innovación.</p>
+    </div>
+    <div><h4>Navegación</h4><a href="#inicio">Inicio</a><a href="#nosotros">Nosotros</a><a href="#servicios">Servicios</a><a href="#sistema">Sistema Contable</a><a href="#contacto">Contacto</a></div>
+    <div><h4>Servicios</h4><a href="#servicios">Auditoría</a><a href="#servicios">Consultoría</a><a href="#sistema">Sistema Contable</a><a href="#servicios">Capacitación</a></div>
+    <div><h4>Contacto</h4><p>📧 correo@ejemplo.com</p><p>📱 +507 6000-0000</p><p>📍 Panamá</p></div>
+  </div>
+  <div class="footer-bottom">© 2026 JS Auditoría & Soluciones. Todos los derechos reservados. | <a href="cv.html">CV</a></div>
 </footer>
 
+<script>
+// FAQ toggle
+document.querySelectorAll('.faq-item').forEach(function(item){
+  item.querySelector('.question').addEventListener('click',function(){
+    item.classList.toggle('open');
+  });
+});
+
+// Nav active link
+document.querySelectorAll('.nav-links a').forEach(function(link){
+  link.addEventListener('click',function(){
+    document.querySelector('.nav-links').classList.remove('open');
+    document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active')});
+    this.classList.add('active');
+  });
+});
+</script>
 </body>
 </html>
