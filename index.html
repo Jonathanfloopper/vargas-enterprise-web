@@ -33,8 +33,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .menu-btn{display:none;background:none;border:none;font-size:26px;cursor:pointer;color:var(--text);padding:4px;width:40px;height:40px;border-radius:var(--radius);transition:var(--transition)}
 .menu-btn:hover{background:var(--bg)}
 @media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);flex-direction:column;padding:12px;gap:2px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg)}
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(255,255,255,0.98);backdrop-filter:blur(20px);flex-direction:column;padding:8px;gap:2px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg)}
   .nav-links.open{display:flex}
+  .nav-links a{padding:14px 18px;font-size:15px}
   .menu-btn{display:block}
 }
 .hero{min-height:100vh;display:flex;align-items:center;padding:140px 24px 100px;background:linear-gradient(135deg,#1e3a8a,#1e40af 30%,#0f172a);position:relative;overflow:hidden}
@@ -71,6 +72,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
   .hero p{margin-left:auto;margin-right:auto}
   .hero-btns{justify-content:center}
   .hero-card{margin:0 auto}
+}
+@media(max-width:480px){
+  .hero{padding:100px 16px 60px}
+  .hero h1{font-size:28px}
+  .hero p{font-size:15px}
+  .hero-card{padding:24px}
+  .hero-btns{flex-direction:column;align-items:center}
+  .hero-btns .btn{width:100%}
 }
 footer{background:linear-gradient(180deg,#0f172a,#0a0f1a);padding:60px 24px 24px;color:rgba(255,255,255,0.45);position:relative}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}

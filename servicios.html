@@ -33,8 +33,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .menu-btn{display:none;background:none;border:none;font-size:24px;cursor:pointer;color:var(--text);padding:4px;width:40px;height:40px;border-radius:var(--radius);transition:var(--transition)}
 .menu-btn:hover{background:var(--bg)}
 @media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(255,255,255,0.98);flex-direction:column;padding:12px;gap:2px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg)}
+  .nav-links{display:none;position:absolute;top:72px;left:0;right:0;background:rgba(255,255,255,0.98);flex-direction:column;padding:8px;gap:2px;border-bottom:1px solid var(--border);box-shadow:var(--shadow-lg)}
   .nav-links.open{display:flex}
+  .nav-links a{padding:14px 18px;font-size:15px}
   .menu-btn{display:block}
 }
 .section{padding:130px 24px 100px;position:relative}
@@ -69,7 +70,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .sistema-compact::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#3b82f6,#1d4ed8,#6366f1)}
 .sc-header{text-align:center;margin-bottom:24px}
 .sc-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-@media(max-width:768px){.sc-body{grid-template-columns:1fr}}
+@media(max-width:768px){
+  .section{padding:100px 16px 60px}
+  .section-header h2{font-size:28px}
+  .section-header{margin-bottom:36px}
+  .section-header p{font-size:15px}
+  .sc-body{grid-template-columns:1fr}
+  .sc-features{grid-template-columns:1fr}
+  .sistema-compact{padding:24px 20px}
+  .sistema-preview .mc .fl{grid-template-columns:1fr 1fr;font-size:12px;gap:4px}
+}
 .sc-features{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .sc-f{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,var(--bg),#f8fafc);border-radius:var(--radius);font-size:13px;font-weight:500;color:var(--text);border:1px solid var(--border);transition:var(--transition)}
 .sc-f:hover{border-color:var(--primary-light);background:linear-gradient(135deg,#f8fafc,var(--bg))}
