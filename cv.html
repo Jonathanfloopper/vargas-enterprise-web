@@ -38,20 +38,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
   .nav-links a{padding:14px 18px;font-size:15px}
   .menu-btn{display:block}
 }
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:14px;transition:var(--transition);cursor:pointer;border:none;font-family:var(--font);position:relative;overflow:hidden}
-.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent 50%);pointer-events:none}
-.btn-primary{background:linear-gradient(135deg,var(--accent),#f97316);color:#0f172a;box-shadow:0 4px 16px rgba(245,158,11,0.3)}
-.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(245,158,11,0.4)}
-.btn-white{background:var(--card);color:var(--text);border:1.5px solid var(--border);box-shadow:var(--shadow-sm)}
-.btn-white:hover{border-color:var(--primary-light);transform:translateY(-3px);box-shadow:var(--shadow-md)}
 .section{padding:130px 24px 100px;position:relative}
 .section-inner{max-width:1200px;margin:0 auto;position:relative;z-index:1}
 .section-header{text-align:center;margin-bottom:56px}
 .section-header .tag{display:inline-block;background:linear-gradient(135deg,var(--primary-light),#e0e7ff);color:var(--primary);font-size:11px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;box-shadow:0 2px 8px rgba(30,64,175,0.06)}
 .section-header h2{font-size:36px;font-weight:900;letter-spacing:-1.5px;background:linear-gradient(135deg,var(--text),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-header p{color:var(--muted);font-size:16px;max-width:560px;margin:12px auto 0}
-.cv-iframe-wrap{max-width:900px;margin:0 auto;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);background:var(--card)}
+.cv-iframe-wrap{max-width:900px;margin:0 auto;border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);background:var(--card);position:relative;user-select:none;-webkit-user-select:none}
 .cv-iframe{width:100%;height:80vh;border:none;display:block}
+@media print{body{display:none!important}}
 @media(max-width:768px){
   .section{padding:100px 16px 60px}
   .section-header h2{font-size:28px}
@@ -98,12 +93,8 @@ footer a:hover{color:var(--accent);transform:translateX(4px)}
       <h2>Mi CV</h2>
       <p>Conocé mi formación y experiencia profesional.</p>
     </div>
-    <div style="text-align:center;margin-bottom:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <a href="cv-jonathan.pdf" download class="btn btn-primary">📄 Descargar CV</a>
-      <a href="cv-jonathan.pdf" target="_blank" class="btn btn-white">🔍 Ver en nueva pestaña</a>
-    </div>
-    <div class="cv-iframe-wrap">
-      <iframe src="cv-jonathan.pdf" class="cv-iframe" title="CV Jonathan Sánchez"></iframe>
+    <div class="cv-iframe-wrap" oncontextmenu="return false">
+      <iframe src="cv-jonathan.pdf#toolbar=0" class="cv-iframe" title="CV Jonathan Sánchez"></iframe>
     </div>
   </div>
 </section>
@@ -120,6 +111,7 @@ footer a:hover{color:var(--accent);transform:translateX(4px)}
 
 <script>
 document.querySelectorAll('.nav-links a').forEach(function(l){l.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open')})});
+document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&(e.key=='p'||e.key=='s'||e.key=='u'))e.preventDefault()});
 </script>
 </body>
 </html>
