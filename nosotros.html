@@ -55,9 +55,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .testimonial .qt{font-size:15px;color:var(--muted);font-style:italic;line-height:1.8;position:relative;z-index:1}
 .testimonial .author{display:flex;align-items:center;gap:14px;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
 .testimonial .av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:15px;box-shadow:0 4px 12px rgba(30,64,175,0.2)}
-.nosotros-img{width:100%;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);position:relative;aspect-ratio:4/5;background:linear-gradient(135deg,#dbeafe,#e0e7ff,#c7d2fe);display:flex;align-items:center;justify-content:center;border:1px solid var(--border)}
-.nosotros-img .img-label{text-align:center;color:var(--primary);opacity:0.6;font-size:14px;font-weight:500;padding:20px}
-.nosotros-img .img-label .big-icon{font-size:56px;display:block;margin-bottom:12px;opacity:0.8}
+.nosotros-img{width:100%;border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-xl);position:relative;background:linear-gradient(135deg,#dbeafe,#e0e7ff,#c7d2fe);border:1px solid var(--border);line-height:0}
+.nosotros-img img{width:100%;height:auto;display:block}
 @media(max-width:768px){.nosotros-grid{grid-template-columns:1fr}.stats-row{grid-template-columns:1fr 1fr}}
 footer{background:linear-gradient(180deg,#0f172a,#0a0f1a);padding:60px 24px 24px;color:rgba(255,255,255,0.45);position:relative}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
@@ -116,7 +115,7 @@ footer a:hover{color:var(--accent);transform:translateX(4px)}
         </div>
       </div>
       <div class="nosotros-img">
-        <img src="jjj.png" alt="VARGAS ENTERPRISE" style="width:100%;height:100%;object-fit:cover;display:block">
+        <img src="jjj.png" alt="VARGAS ENTERPRISE">
       </div>
     </div>
   </div>
