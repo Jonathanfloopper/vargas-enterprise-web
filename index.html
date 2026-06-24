@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Sánchez</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0f;color:#e0e0e0;font-family:'Segoe UI',-apple-system,sans-serif;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid #1a1a2e;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+nav .logo{font-weight:700;font-size:18px;color:#7bf;letter-spacing:-0.5px}
+nav .logo span{color:#fff}
+nav a{color:#888;text-decoration:none;font-size:14px;margin-left:20px;transition:0.2s}
+nav a:hover{color:#7bf}
+.container{max-width:900px;margin:0 auto;padding:0 24px}
+.section{padding:100px 0 60px}
+h1{font-size:44px;font-weight:800;letter-spacing:-1px;line-height:1.2}
+h1 .accent{background:linear-gradient(135deg,#7bf,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:26px;font-weight:700;margin-bottom:30px;color:#fff}
+h2 .line{display:inline-block;width:40px;height:3px;background:#7bf;margin-right:12px;vertical-align:middle}
+p{color:#999;font-size:16px;max-width:600px}
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:60px}
+.hero p{font-size:18px;color:#777;margin:20px 0 30px}
+.btn{display:inline-block;padding:12px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;transition:0.2s;cursor:pointer;border:none}
+.btn-primary{background:#7bf;color:#0a0a0f}
+.btn-primary:hover{background:#6af;transform:translateY(-2px)}
+.btn-outline{background:transparent;border:1.5px solid #333;color:#ccc}
+.btn-outline:hover{border-color:#7bf;color:#7bf}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.project-card{background:#12121e;border:1px solid #1e1e30;border-radius:12px;padding:20px;transition:0.3s}
+.project-card:hover{border-color:#7bf;transform:translateY(-4px);box-shadow:0 8px 30px rgba(100,180,255,0.08)}
+.project-card .icon{font-size:28px;margin-bottom:10px}
+.project-card h3{font-size:16px;color:#fff;margin-bottom:6px}
+.project-card p{font-size:13px;color:#777;margin-bottom:12px}
+.project-card .tag{display:inline-block;background:#1a1a2e;color:#7bf;font-size:11px;padding:2px 10px;border-radius:10px;margin-right:4px;margin-bottom:4px}
+.project-card .link{color:#7bf;text-decoration:none;font-size:13px;font-weight:600;display:inline-block;margin-top:8px}
+.project-card .link:hover{text-decoration:underline}
+.contact{background:#0e0e1a;border:1px solid #1a1a2e;border-radius:12px;padding:30px;text-align:center}
+.contact p{color:#888;font-size:14px;margin:10px 0 20px}
+.contact .email{color:#7bf;text-decoration:none;font-size:18px;font-weight:600}
+.contact .email:hover{text-decoration:underline}
+footer{text-align:center;padding:40px 20px;color:#444;font-size:13px;border-top:1px solid #111}
+footer a{color:#555;text-decoration:none}
+footer a:hover{color:#7bf}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">JS<span>.</span></div>
+  <div>
+    <a href="#inicio">Inicio</a>
+    <a href="#proyectos">Proyectos</a>
+    <a href="cv.html">📄 CV</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+</nav>
+
+<section class="hero" id="inicio">
+  <div class="container">
+    <h1>Jonathan<br><span class="accent">Sánchez</span></h1>
+    <p>Auditoría, seguridad informática y desarrollo web. Creando soluciones prácticas para problemas reales.</p>
+    <a href="cv.html" class="btn btn-primary">📄 Ver mi CV</a>
+    <a href="#proyectos" class="btn btn-outline" style="margin-left:10px">Proyectos</a>
+  </div>
+</section>
+
+<section class="section" id="proyectos">
+  <div class="container">
+    <h2><span class="line"></span>Proyectos</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="icon">🔐</div>
+        <h3>Auditoría de Acceso a Galería</h3>
+        <p>Demo que muestra cómo un link puede obtener fotos del teléfono mediante ingeniería social. Incluye panel de administración con EXIF y GPS.</p>
+        <span class="tag">Seguridad</span>
+        <span class="tag">Auditoría</span>
+        <a href="../JUEGOIA/foto.html" class="link">Ver demo →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="icon">📊</div>
+        <h3>Panel de Exfiltración</h3>
+        <p>Panel que muestra datos capturados en tiempo real con metadatos EXIF, GPS simulado y exportación JSON.</p>
+        <span class="tag">Dashboard</span>
+        <span class="tag">Forensia</span>
+        <a href="../JUEGOIA/panel.html" class="link">Ver panel →</a>
+      </div>
+
+      <div class="project-card">
+        <div class="icon">🚀</div>
+        <h3>ARCA — Misión Kepler</h3>
+        <p>Juego interactivo de navegación espacial con sistema de decisiones, moral y eventos aleatorios.</p>
+        <span class="tag">Juego</span>
+        <span class="tag">JavaScript</span>
+        <a href="../JUEGOIA/index.html" class="link">Jugar →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contacto">
+  <div class="container">
+    <h2><span class="line"></span>Contacto</h2>
+    <div class="contact">
+      <p>Si querés contactarme para algún proyecto o colaboración, escribime.</p>
+      <a href="mailto:correo@ejemplo.com" class="email">correo@ejemplo.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026</p>
+</footer>
+
+</body>
+</html>
