@@ -44,65 +44,57 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255
 .section-header .tag{display:inline-block;background:linear-gradient(135deg,var(--primary-light),#e0e7ff);color:var(--primary);font-size:11px;font-weight:700;padding:5px 18px;border-radius:20px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:14px;box-shadow:0 2px 8px rgba(30,64,175,0.06)}
 .section-header h2{font-size:36px;font-weight:900;letter-spacing:-1.5px;background:linear-gradient(135deg,var(--text),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .section-header p{color:var(--muted);font-size:16px;max-width:560px;margin:12px auto 0}
-.servicios-grid{display:grid;grid-template-columns:repeat(3,minmax(280px,1fr));gap:24px;justify-content:center}
-@media(max-width:960px){.servicios-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}}
-.servicio-card{background:var(--card);border-radius:var(--radius-xl);padding:0;transition:var(--transition);box-shadow:var(--shadow-md);position:relative;overflow:hidden;border:1px solid var(--border)}
-.servicio-card:hover{transform:translateY(-8px)}
-.servicio-card .sc-top{height:5px;width:100%}
-.servicio-card .sc-body{padding:28px 24px 32px}
-.servicio-card .icon{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:var(--radius-lg);font-size:26px;margin-bottom:18px;transition:var(--transition);box-shadow:0 4px 12px rgba(0,0,0,0.04)}
-.servicio-card:hover .icon{transform:scale(1.06) rotate(-3deg)}
-.servicio-card h3{font-size:18px;font-weight:700;margin-bottom:10px;letter-spacing:-0.3px}
-.servicio-card p{font-size:14px;color:var(--muted);line-height:1.8;margin:0}
-.servicio-card:nth-child(1){border-color:rgba(59,130,246,0.2)}
-.servicio-card:nth-child(1) .sc-top{background:linear-gradient(90deg,#3b82f6,#1d4ed8,#3b82f6)}
-.servicio-card:nth-child(1) .icon{background:linear-gradient(135deg,#eff6ff,#dbeafe);color:#1d4ed8}
-.servicio-card:nth-child(1):hover{box-shadow:0 16px 48px rgba(59,130,246,0.15);border-color:rgba(59,130,246,0.3)}
-.servicio-card:nth-child(2){border-color:rgba(16,185,129,0.2)}
-.servicio-card:nth-child(2) .sc-top{background:linear-gradient(90deg,#10b981,#047857,#10b981)}
-.servicio-card:nth-child(2) .icon{background:linear-gradient(135deg,#ecfdf5,#d1fae5);color:#047857}
-.servicio-card:nth-child(2):hover{box-shadow:0 16px 48px rgba(16,185,129,0.15);border-color:rgba(16,185,129,0.3)}
-.servicio-card:nth-child(3){border-color:rgba(245,158,11,0.2)}
-.servicio-card:nth-child(3) .sc-top{background:linear-gradient(90deg,#f59e0b,#d97706,#f59e0b)}
-.servicio-card:nth-child(3) .icon{background:linear-gradient(135deg,#fffbeb,#fef3c7);color:#d97706}
-.servicio-card:nth-child(3):hover{box-shadow:0 16px 48px rgba(245,158,11,0.15);border-color:rgba(245,158,11,0.3)}
-.sistema-compact{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);padding:32px 36px;box-shadow:var(--shadow-lg);max-width:920px;margin:0 auto;position:relative;overflow:hidden}
-.sistema-compact::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,#3b82f6,#1d4ed8,#6366f1)}
-.sc-header{text-align:center;margin-bottom:24px}
-.sc-body{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.card-lg{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);max-width:860px;margin:0 auto}
+.card-lg .top-bar{height:5px;background:linear-gradient(90deg,#3b82f6,#1d4ed8,#3b82f6)}
+.card-lg .body{padding:36px}
+.card-lg .icon{width:64px;height:64px;border-radius:var(--radius-lg);background:linear-gradient(135deg,#eff6ff,#dbeafe);display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:20px}
+.card-lg h3{font-size:22px;font-weight:800;margin-bottom:14px;letter-spacing:-0.3px}
+.card-lg p{font-size:15px;color:var(--muted);line-height:1.9;margin-bottom:20px}
+.feature-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.feature-list .fl-item{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,var(--bg),#f8fafc);border:1px solid var(--border);border-radius:var(--radius);font-size:14px;font-weight:500;transition:var(--transition)}
+.feature-list .fl-item:hover{border-color:var(--primary);background:linear-gradient(135deg,#f8fafc,var(--bg))}
+.feature-list .fl-item .fi{font-size:18px;flex-shrink:0}
+.sistema-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);overflow:hidden;box-shadow:var(--shadow-lg);max-width:860px;margin:0 auto}
+.sistema-panel .top-bar{height:5px;background:linear-gradient(90deg,#6366f1,#4f46e5,#6366f1)}
+.sistema-panel .body{padding:36px}
+.sistema-panel .panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+.sistema-panel h4{font-size:18px;font-weight:800;margin-bottom:16px}
+.preview-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
+.preview-box .tb{display:flex;align-items:center;gap:8px;padding:14px 18px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-bottom:1px solid var(--border)}
+.preview-box .tb .dot{width:10px;height:10px;border-radius:50%}
+.preview-box .tb .dot:nth-child(1){background:#ef4444}
+.preview-box .tb .dot:nth-child(2){background:#f59e0b}
+.preview-box .tb .dot:nth-child(3){background:#22c55e}
+.preview-box .tb span{font-size:12px;color:var(--muted);margin-left:10px;font-weight:500}
+.preview-box .mc{padding:20px}
+.preview-box .mc .fl{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--border);font-size:13px;transition:var(--transition)}
+.preview-box .mc .fl:last-child{border:none}
+.preview-box .mc .fl.hd{color:var(--primary);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--primary);padding-bottom:12px}
+.preview-box .mc .fl .gn{color:#16a34a;font-weight:600}
+.preview-box .mc .fl .rd{color:#dc2626;font-weight:600}
+.roadmap-row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid var(--border)}
+.roadmap-item{padding:6px 18px;border-radius:20px;font-size:12px;font-weight:600;transition:var(--transition)}
+.roadmap-item:hover{transform:translateY(-2px)}
+.roadmap-item.done{background:#dcfce7;color:#16a34a}
+.roadmap-item.wip{background:#fef9c3;color:#ca8a04}
+.roadmap-item.soon{background:#f1f5f9;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:14px;transition:var(--transition);cursor:pointer;border:none;font-family:var(--font);position:relative;overflow:hidden}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent 50%);pointer-events:none}
+.btn-primary{background:linear-gradient(135deg,var(--accent),#f97316);color:#0f172a;box-shadow:0 4px 16px rgba(245,158,11,0.3)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(245,158,11,0.4)}
+
 @media(max-width:768px){
   .section{padding:100px 16px 60px}
   .section-header h2{font-size:28px}
   .section-header{margin-bottom:36px}
   .section-header p{font-size:15px}
-  .sc-body{grid-template-columns:1fr}
-  .sc-features{grid-template-columns:1fr}
-  .sistema-compact{padding:24px 20px}
-  .sistema-preview .mc .fl{grid-template-columns:1fr 1fr;font-size:12px;gap:4px}
+  .card-lg .body{padding:24px}
+  .card-lg h3{font-size:19px}
+  .feature-list{grid-template-columns:1fr}
+  .sistema-panel .body{padding:24px}
+  .sistema-panel .panel-grid{grid-template-columns:1fr}
+  .preview-box .mc .fl{grid-template-columns:1fr 1fr;font-size:12px;gap:4px}
 }
-.sc-features{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.sc-f{display:flex;align-items:center;gap:10px;padding:12px 16px;background:linear-gradient(135deg,var(--bg),#f8fafc);border-radius:var(--radius);font-size:13px;font-weight:500;color:var(--text);border:1px solid var(--border);transition:var(--transition)}
-.sc-f:hover{border-color:var(--primary-light);background:linear-gradient(135deg,#f8fafc,var(--bg))}
-.sc-f-icon{font-size:18px;flex-shrink:0}
-.sc-coming{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:18px;border-top:1px solid var(--border)}
-.sc-coming-item{padding:6px 18px;border-radius:20px;font-size:12px;font-weight:600;transition:var(--transition)}
-.sc-coming-item:hover{transform:translateY(-2px)}
-.sc-coming-item.done{background:#dcfce7;color:#16a34a}
-.sc-coming-item.wip{background:#fef9c3;color:#ca8a04}
-.sc-coming-item.soon{background:#f1f5f9;color:var(--muted)}
-.sistema-preview{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md)}
-.sistema-preview .tb{display:flex;align-items:center;gap:8px;padding:14px 18px;background:linear-gradient(135deg,#f8fafc,#f1f5f9);border-bottom:1px solid var(--border)}
-.sistema-preview .tb .dot{width:10px;height:10px;border-radius:50%}
-.sistema-preview .tb .dot:nth-child(1){background:#ef4444}
-.sistema-preview .tb .dot:nth-child(2){background:#f59e0b}
-.sistema-preview .tb .dot:nth-child(3){background:#22c55e}
-.sistema-preview .tb span{font-size:12px;color:var(--muted);margin-left:10px;font-weight:500}
-.sistema-preview .mc{padding:20px}
-.sistema-preview .mc .fl{display:grid;grid-template-columns:1fr 2fr 1fr 1fr;gap:8px;padding:12px 0;border-bottom:1px solid var(--border);font-size:13px;transition:var(--transition)}
-.sistema-preview .mc .fl:last-child{border:none}
-.sistema-preview .mc .fl.hd{color:var(--primary);font-weight:700;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;border-bottom:2px solid var(--primary);padding-bottom:12px}
-.sistema-preview .mc .fl .gn{color:#16a34a;font-weight:600}
-.sistema-preview .mc .fl .rd{color:#dc2626;font-weight:600}
 footer{background:linear-gradient(180deg,#0f172a,#0a0f1a);padding:60px 24px 24px;color:rgba(255,255,255,0.45);position:relative}
 footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent)}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
@@ -141,46 +133,68 @@ footer a:hover{color:var(--accent);transform:translateX(4px)}
       <h2>Servicios</h2>
       <p>Soluciones tecnológicas para potenciar tu proyecto o negocio.</p>
     </div>
-    <div class="servicios-grid">
-      <div class="servicio-card" style="max-width:400px;margin:0 auto"><div class="sc-top"></div><div class="sc-body"><div class="icon">💻</div><h3>Desarrollo de Software Contable</h3><p>Creamos plataformas contables personalizadas: facturación, inventarios, reportes financieros y más.</p></div></div>
+    <div class="card-lg">
+      <div class="top-bar"></div>
+      <div class="body">
+        <div class="icon">💻</div>
+        <h3>Desarrollo de Software Contable</h3>
+        <p>Creamos plataformas contables personalizadas que automatizan la gestión financiera de tu negocio. Facturación electrónica, control de inventarios, reportes financieros, cuentas por cobrar/pagar y más, todo en una sola plataforma diseñada a tu medida.</p>
+        <div class="feature-list">
+          <div class="fl-item"><span class="fi">📈</span><span>Reportes Automáticos</span></div>
+          <div class="fl-item"><span class="fi">📄</span><span>Facturación con NCF</span></div>
+          <div class="fl-item"><span class="fi">📦</span><span>Control de Inventarios</span></div>
+          <div class="fl-item"><span class="fi">👥</span><span>Roles y Permisos</span></div>
+          <div class="fl-item"><span class="fi">📱</span><span>Multiplataforma</span></div>
+          <div class="fl-item"><span class="fi">🔐</span><span>Datos Seguros</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="section" style="background:linear-gradient(135deg,#f0fdf4,#ecfdf5,#f0fdf4);padding-top:0">
   <div class="section-inner">
-    <div class="sistema-compact">
-      <div class="sc-header">
-        <span class="tag" style="margin-bottom:8px;background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#047857">Plataforma</span>
-        <h2 style="font-size:24px;font-weight:900;color:var(--text);letter-spacing:-0.5px">Sistema Contable</h2>
-        <p style="color:var(--muted);font-size:14px;max-width:480px;margin:6px auto 0">Desarrollamos sistemas contables como parte de nuestras soluciones de software.</p>
-      </div>
-      <div class="sc-body">
-        <div class="sistema-preview" style="margin:0">
-          <div class="tb"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Plataforma Contable — Dashboard</span></div>
-          <div class="mc">
-            <div class="fl hd"><span>Cuenta</span><span>Descripción</span><span>Debe</span><span>Haber</span></div>
-            <div class="fl"><span>1.01.01</span><span>Caja General</span><span class="gn">B/. 12,500</span><span>—</span></div>
-            <div class="fl"><span>2.01.01</span><span>Proveedores</span><span>—</span><span class="rd">B/. 8,300</span></div>
-            <div class="fl"><span>4.01.01</span><span>Ventas Netas</span><span>—</span><span class="gn">B/. 45,200</span></div>
-            <div class="fl"><span>5.01.01</span><span>Costo de Ventas</span><span class="rd">B/. 28,100</span><span>—</span></div>
-            <div class="fl"><span>3.01.01</span><span>Capital Social</span><span>—</span><span class="gn">B/. 50,000</span></div>
+    <div class="section-header">
+      <span class="tag" style="background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#047857">Plataforma</span>
+      <h2>Sistema Contable</h2>
+      <p>Una vista previa del tipo de herramientas que desarrollamos como parte de nuestras soluciones de software.</p>
+    </div>
+    <div class="sistema-panel">
+      <div class="top-bar"></div>
+      <div class="body">
+        <div class="panel-grid">
+          <div>
+            <h4>Dashboard Contable</h4>
+            <div class="preview-box">
+              <div class="tb"><div class="dot"></div><div class="dot"></div><div class="dot"></div><span>Plataforma Contable — Dashboard</span></div>
+              <div class="mc">
+                <div class="fl hd"><span>Cuenta</span><span>Descripción</span><span>Debe</span><span>Haber</span></div>
+                <div class="fl"><span>1.01.01</span><span>Caja General</span><span class="gn">B/. 12,500</span><span>—</span></div>
+                <div class="fl"><span>2.01.01</span><span>Proveedores</span><span>—</span><span class="rd">B/. 8,300</span></div>
+                <div class="fl"><span>4.01.01</span><span>Ventas Netas</span><span>—</span><span class="gn">B/. 45,200</span></div>
+                <div class="fl"><span>5.01.01</span><span>Costo de Ventas</span><span class="rd">B/. 28,100</span><span>—</span></div>
+                <div class="fl"><span>3.01.01</span><span>Capital Social</span><span>—</span><span class="gn">B/. 50,000</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h4>Características</h4>
+            <div class="feature-list">
+              <div class="fl-item"><span class="fi">📈</span><span>Reportes Automáticos</span></div>
+              <div class="fl-item"><span class="fi">📄</span><span>Facturación NCF</span></div>
+              <div class="fl-item"><span class="fi">📦</span><span>Control de Inventarios</span></div>
+              <div class="fl-item"><span class="fi">👥</span><span>Roles y Permisos</span></div>
+              <div class="fl-item"><span class="fi">📱</span><span>Multiplataforma</span></div>
+              <div class="fl-item"><span class="fi">🔐</span><span>Datos Seguros</span></div>
+            </div>
+            <div class="roadmap-row" style="margin-top:16px">
+              <span class="roadmap-item done">✅ RRHH</span>
+              <span class="roadmap-item wip">🔧 Conciliación</span>
+              <span class="roadmap-item soon">⏳ App Móvil</span>
+              <span class="roadmap-item soon">⏳ IA Predictiva</span>
+            </div>
           </div>
         </div>
-        <div class="sc-features">
-          <div class="sc-f"><span class="sc-f-icon">📈</span><span>Reportes Automáticos</span></div>
-          <div class="sc-f"><span class="sc-f-icon">📄</span><span>Facturación NCF</span></div>
-          <div class="sc-f"><span class="sc-f-icon">📦</span><span>Control de Inventarios</span></div>
-          <div class="sc-f"><span class="sc-f-icon">👥</span><span>Roles y Permisos</span></div>
-          <div class="sc-f"><span class="sc-f-icon">📱</span><span>Multiplataforma</span></div>
-          <div class="sc-f"><span class="sc-f-icon">🔐</span><span>Datos Seguros</span></div>
-        </div>
-      </div>
-      <div class="sc-coming">
-        <span class="sc-coming-item done">✅ RRHH</span>
-        <span class="sc-coming-item wip">🔧 Conciliación</span>
-        <span class="sc-coming-item soon">⏳ App Móvil</span>
-        <span class="sc-coming-item soon">⏳ IA Predictiva</span>
       </div>
     </div>
   </div>
